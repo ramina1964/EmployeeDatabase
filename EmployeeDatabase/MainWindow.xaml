@@ -5,8 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeDatabase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Employee database" Width="550" Height="800" MinWidth="550" MinHeight="800">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "650"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "200"/>
+            <ColumnDefinition Width = "300"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation ="Vertical" Margin="10, 60, 10, 10">
+            <TextBlock Grid.Column ="0" Text="Employees" FontSize="20"/>
+            <ListBox Height="550" Background ="Beige"
+                     ItemsSource = "{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness ="4" >
+                            <StackPanel Orientation = "Horizontal">
+                                <StackPanel Orientation = "Vertical">
+                                    <TextBlock TextAlignment="Left" Text = "Id:"    />
+                                    <TextBlock TextAlignment="Left" Text = "Name:"  />
+                                </StackPanel>
+                                <StackPanel Orientation = "Vertical" Margin = "20, 0, 0, 0">
+                                    <TextBlock TextAlignment="Right" Text="{Binding Id}"/>
+                                    <TextBlock TextAlignment="Right" Text="{Binding Name}" />
+
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <Grid Grid.Column ="1" Margin="20, 60, 10, 10" Background="Coral"
+              HorizontalAlignment="Stretch" VerticalAlignment="Center" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" TextAlignment="Left" Grid.ColumnSpan="2" Text="Details" FontSize ="20"/>
+            
+            <TextBlock Grid.Row="1" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text="Id:              " />
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text="Name:            " />
+            
+            <TextBlock Grid.Row="3" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text = "Birthday:      " />
+            
+            <TextBlock Grid.Row="4" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text = "Address:       " />
+            
+            <TextBlock Grid.Row="5" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text = "Department:    " />
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Width ="Auto" Height ="Auto"
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Id}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="1" Width ="Auto" Height ="Auto"
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Name}"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="1" Width ="Auto" Height ="Auto"
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Birthday}"/>
+            
+            <TextBlock Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto"
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Address}"/>
+
+            <TextBlock Grid.Row="5" Grid.Column="1" Width ="Auto" Height ="Auto"
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Department}"/>
+        </Grid>
+
     </Grid>
 </Window>
