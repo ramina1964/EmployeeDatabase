@@ -32,7 +32,6 @@
                                 <StackPanel Orientation = "Vertical" Margin = "20, 0, 0, 0">
                                     <TextBlock TextAlignment="Right" Text="{Binding Id}"/>
                                     <TextBlock TextAlignment="Right" Text="{Binding Name}" />
-
                                 </StackPanel>
                             </StackPanel>
                         </Border>
@@ -57,37 +56,38 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" TextAlignment="Left" Grid.ColumnSpan="2" Text="Details" FontSize ="20"/>
+            <TextBlock Grid.Row="0" TextAlignment="Left" Grid.ColumnSpan="2" Text="Details"
+                       FontSize ="20" Margin="5, 5, 0, 0" />
             
             <TextBlock Grid.Row="1" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text="Id:              " />
+                       Text="Id:              " Margin="5, 5, 0, 0" />
             
             <TextBlock Grid.Row="2" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text="Name:            " />
+                       Text="Name:            " Margin="5, 5, 0, 0"  />
             
             <TextBlock Grid.Row="3" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Birthday:      " />
+                       Text = "Birthday:      " Margin="5, 5, 0, 0"  />
             
             <TextBlock Grid.Row="4" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Address:       " />
+                       Text = "Address:       " Margin="5, 5, 0, 0"  />
             
             <TextBlock Grid.Row="5" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Department:    " />
+                       Text = "Department:    " Margin="5, 5, 0, 5" />
 
             <TextBlock Grid.Row="1" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Id}" />
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Id}" Margin="5, 5, 0, 0" />
 
             <TextBlock Grid.Row="2" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Name}"/>
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Name}" Margin="5, 5, 0, 0" />
 
             <TextBlock Grid.Row="3" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Birthday}"/>
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Birthday}" Margin="5, 5, 0, 0" />
             
             <TextBlock Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Address}"/>
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Address}" Margin="5, 5, 0, 0" />
 
             <TextBlock Grid.Row="5" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Department}"/>
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Department}" Margin="5, 5, 0, 5" />
         </Grid>
 
     </Grid>
