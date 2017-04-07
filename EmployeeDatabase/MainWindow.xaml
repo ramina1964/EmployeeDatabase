@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation ="Vertical" Margin="10, 60, 10, 10">
-            <TextBlock Grid.Column ="0" Text="Employees" FontSize="20"/>
+            <TextBlock Text="Employees" FontSize="20"/>
             <ListBox Height="550" Background ="Beige"
                      ItemsSource = "{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" >
                 <ListBox.ItemTemplate>
@@ -66,13 +66,13 @@
                        Text="Name:            " Margin="5, 5, 0, 0"  />
             
             <TextBlock Grid.Row="3" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Birthday:      " Margin="5, 5, 0, 0"  />
-            
-            <TextBlock Grid.Row="4" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
                        Text = "Address:       " Margin="5, 5, 0, 0"  />
             
+            <TextBlock Grid.Row="4" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text = "Department:    " Margin="5, 5, 0, 0" />
+
             <TextBlock Grid.Row="5" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Department:    " Margin="5, 5, 0, 5" />
+                       Text = "Birthday:      " Margin="5, 5, 0, 5"  />
 
             <TextBlock Grid.Row="1" Grid.Column="1" Width ="Auto" Height ="Auto"
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Id}" Margin="5, 5, 0, 0" />
@@ -81,13 +81,14 @@
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Name}" Margin="5, 5, 0, 0" />
 
             <TextBlock Grid.Row="3" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Birthday}" Margin="5, 5, 0, 0" />
-            
-            <TextBlock Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto"
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Address}" Margin="5, 5, 0, 0" />
 
+            <TextBlock Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto"
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Department}" Margin="5, 5, 0, 0" />
+        
             <TextBlock Grid.Row="5" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Department}" Margin="5, 5, 0, 5" />
+                       TextAlignment="Right" Text="{Binding SelectedEmployee.Birthday}" Margin="5, 5, 0, 5" />
+
         </Grid>
 
     </Grid>
