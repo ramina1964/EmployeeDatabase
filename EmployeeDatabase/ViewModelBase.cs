@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using EmployeeDatabase.Annotations;
 
 namespace EmployeeDatabase
 {
-	public class ViewModelBase : INotifyPropertyChanged 
+	public class ViewModelBase : INotifyPropertyChanged
 	{
 		public virtual event PropertyChangedEventHandler PropertyChanged;
 
@@ -13,5 +14,7 @@ namespace EmployeeDatabase
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+
+		public event EventHandler CanExecuteChanged;
 	}
 }

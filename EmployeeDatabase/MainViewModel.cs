@@ -1,26 +1,34 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace EmployeeDatabase
 {
 	public class MainViewModel : ViewModelBase
 	{
+		// Constructor
 		public MainViewModel()
 		{
 			_random = new Random();
 			LoadData();
+			RunCommand = new RelayCommand(CanExecuteTask, ExecuteTask);
+
 			SelectedEmployee = Employees[0];
 		}
 
 		/***************************************** Class Interface *****************************************/
+		public ICommand RunCommand { get; set; }
+
+		// Important for data binding
 		public ObservableCollection<Person> Employees { get; set; }
-
 		public ObservableCollection<Department> Departments { get; set; }
-
+		public Department SelectedDepartment { get; set; }
 		public Person SelectedEmployee
 		{
-			get { return _selectedEmployee; }
+			get => _selectedEmployee;
 			set
 			{
 				_selectedEmployee = value;
@@ -29,8 +37,6 @@ namespace EmployeeDatabase
 				OnPropertyChanged(nameof(SelectedDepartment));
 			}
 		}
-
-		public Department SelectedDepartment { get; set; }
 
 		/************************************ Private Fields and Methods ***********************************/
 		private void LoadData()
@@ -63,10 +69,32 @@ namespace EmployeeDatabase
 			return randomBirthday;
 		}
 
+		private async void ExecuteTask(object parameter)
+		{
+			var id = (int)parameter;
+
+			// This is a long running task and should be awaited:
+			await LongRunningTask();
+
+			SetNextEmployee(id);
+		}
+
+		private bool CanExecuteTask(object obj) => true;
+
+		// Simulate a long running task by waiting 3 seconds.
+		public Task LongRunningTask() => Task.Delay(3000);
+
+		private void SetNextEmployee(int id)
+		{
+			var employee = Employees.FirstOrDefault(e => e.Id > id);
+
+			// Alternative to the approach above is extracting id directly from SelectedEmployee:
+			// var employee = Employees.FirstOrDefault(e => e.Id > SelectedEmployee.Id);
+
+			SelectedEmployee = employee ?? Employees.First();
+		}
+
 		private readonly Random _random;
 		private Person _selectedEmployee;
-		//private ObservableCollection<Person> _employees;
-		//private Department _selectedDepartment;
-		//private ObservableCollection<Department> _departments;
 	}
 }
