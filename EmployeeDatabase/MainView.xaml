@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Employee database" Width="550" Height="800" MinWidth="550" MinHeight="800">
 
-    <Grid>
+    <Window.DataContext >
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height = "650"/>
         </Grid.RowDefinitions>
@@ -19,7 +23,7 @@
 
         <StackPanel Orientation ="Vertical" Margin="10, 60, 10, 10">
             <TextBlock Text="Employees" FontSize="20"/>
-            <ListBox Height="550" Background ="Beige" 
+            <ListBox Height="550" Background ="Beige"
                      ItemsSource = "{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -44,7 +48,7 @@
                             <Trigger Property="IsSelected" Value="True" >
                                 <Setter Property="FontWeight" Value="Bold" />
                                 <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Foreground" Value="BlueViolet" />
+                                <Setter Property="Foreground" Value="Crimson" />
                             </Trigger>
                         </Style.Triggers>
                         <Style.Resources>
@@ -58,7 +62,7 @@
 
         <StackPanel Grid.Column ="1" Orientation ="Vertical"
                     HorizontalAlignment="Stretch" VerticalAlignment="Center" >
-            
+
             <Border BorderThickness ="2" BorderBrush ="BlueViolet"
                 Margin="20, 60, 10, 10" >
                 <Grid Background="Coral"
@@ -104,7 +108,7 @@
                     <TextBlock Grid.Row="3" Grid.Column="1" Width ="Auto" Height ="Auto"
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Address}" Margin="5, 5, 0, 0" />
 
-                    <ComboBox Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto" IsHitTestVisible="true"
+                    <ComboBox Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto" IsHitTestVisible="False"
                           ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment}"
                           Margin="5, 5, 0, 0" />
 
@@ -119,3 +123,4 @@
         </StackPanel>
     </Grid>
 </Window>
+

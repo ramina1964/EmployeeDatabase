@@ -15,6 +15,6 @@ namespace EmployeeDatabase
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		public event EventHandler CanExecuteChanged;
+		//public event EventHandler CanExecuteChanged;
 	}
 }
