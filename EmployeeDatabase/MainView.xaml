@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeDatabase"
         mc:Ignorable="d"
-        Title="Employee database" Width="550" Height="800" MinWidth="550" MinHeight="800">
+        Title="Employee database" Width="550" Height="800" MinWidth="550" MinHeight="800"
+        local:ViewModelLocator.AutoWiredViewModel="True" >
 
-    <Window.DataContext >
+    <!--<Window.DataContext >
         <local:MainViewModel />
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Grid >
         <Grid.RowDefinitions>

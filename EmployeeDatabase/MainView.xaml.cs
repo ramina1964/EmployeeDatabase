@@ -5,6 +5,7 @@
 		public MainView()
 		{
 			InitializeComponent();
+			//DataContext = new MainViewModel();
 		}
 	}
 }
