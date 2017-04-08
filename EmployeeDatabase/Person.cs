@@ -8,6 +8,6 @@ namespace EmployeeDatabase
 		public string Name { get; set; }
 		public string Birthday { get; set; }
 		public string Address { get; set; }
-		public int Department { get; set; }
+		public int DepartmentId { get; set; }
 	}
 }

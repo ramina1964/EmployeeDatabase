@@ -40,56 +40,59 @@
             </ListBox>
         </StackPanel>
 
-        <Grid Grid.Column ="1" Margin="20, 60, 10, 10" Background="Coral"
+        <Border Grid.Column ="1" BorderThickness ="2" BorderBrush ="BlueViolet"
+                HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20, 60, 10, 10" >
+            <Grid Background="Coral"
               HorizontalAlignment="Stretch" VerticalAlignment="Center" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" TextAlignment="Left" Grid.ColumnSpan="2" Text="Details"
+                <TextBlock Grid.Row="0" TextAlignment="Left" Grid.ColumnSpan="2" Text="Details"
                        FontSize ="20" Margin="5, 5, 0, 0" />
-            
-            <TextBlock Grid.Row="1" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text="Id:              " Margin="5, 5, 0, 0" />
-            
-            <TextBlock Grid.Row="2" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text="Name:            " Margin="5, 5, 0, 0"  />
-            
-            <TextBlock Grid.Row="3" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Address:       " Margin="5, 5, 0, 0"  />
-            
-            <TextBlock Grid.Row="4" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
-                       Text = "Department:    " Margin="5, 5, 0, 0" />
 
-            <TextBlock Grid.Row="5" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                <TextBlock Grid.Row="1" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text="Id:              " Margin="5, 5, 0, 0" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text="Name:            " Margin="5, 5, 0, 0"  />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text = "Address:       " Margin="5, 5, 0, 0"  />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
+                       Text = "DepartmentId:    " Margin="5, 5, 0, 0" />
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Width ="Auto" Height ="Auto" TextAlignment="Left"
                        Text = "Birthday:      " Margin="5, 5, 0, 5"  />
 
-            <TextBlock Grid.Row="1" Grid.Column="1" Width ="Auto" Height ="Auto"
+                <TextBlock Grid.Row="1" Grid.Column="1" Width ="Auto" Height ="Auto"
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Id}" Margin="5, 5, 0, 0" />
 
-            <TextBlock Grid.Row="2" Grid.Column="1" Width ="Auto" Height ="Auto"
+                <TextBlock Grid.Row="2" Grid.Column="1" Width ="Auto" Height ="Auto"
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Name}" Margin="5, 5, 0, 0" />
 
-            <TextBlock Grid.Row="3" Grid.Column="1" Width ="Auto" Height ="Auto"
+                <TextBlock Grid.Row="3" Grid.Column="1" Width ="Auto" Height ="Auto"
                        TextAlignment="Right" Text="{Binding SelectedEmployee.Address}" Margin="5, 5, 0, 0" />
 
-            <TextBlock Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Department}" Margin="5, 5, 0, 0" />
-        
-            <TextBlock Grid.Row="5" Grid.Column="1" Width ="Auto" Height ="Auto"
-                       TextAlignment="Right" Text="{Binding SelectedEmployee.Birthday}" Margin="5, 5, 0, 5" />
+                <ComboBox Grid.Row="4" Grid.Column="1" Width ="Auto" Height ="Auto" IsHitTestVisible="true"
+                          ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment}"
+                          Margin="5, 5, 0, 0" />
 
-        </Grid>
+                <DatePicker Grid.Row="5" Grid.Column="1" Width ="Auto" Height ="Auto" IsHitTestVisible="False"
+                       Text="{Binding SelectedEmployee.Birthday}" Margin="5, 5, 0, 5" />
+            </Grid>
+        </Border>
 
     </Grid>
 </Window>
