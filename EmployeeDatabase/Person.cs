@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EmployeeDatabase
+﻿namespace EmployeeDatabase
 {
 	public class Person
 	{

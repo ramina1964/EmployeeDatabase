@@ -6,10 +6,10 @@ namespace EmployeeDatabase
 {
 	public static class ViewModelLocator
 	{
-		public static bool GetAutoWiredViewModel(DependencyObject obj)
+		public static bool GetAutoWireViewModel(DependencyObject obj)
 		{ return (bool)obj.GetValue(GetAutoWireViewModelProperty); }
 
-		public static void SetAutoWiredViewModel(DependencyObject obj, bool value)
+		public static void SetAutoWireViewModel(DependencyObject obj, bool value)
 		{ obj.SetValue(GetAutoWireViewModelProperty, value); }
 
 		public static readonly DependencyProperty GetAutoWireViewModelProperty =

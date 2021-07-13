@@ -40,19 +40,18 @@ namespace EmployeeDatabase
 		/************************************ Private Fields and Methods ***********************************/
 		private void LoadData()
 		{
-			var employees = Enumerable.Range(1, 100).Select(item => new Person()
+			var employees = Enumerable.Range(1, 100).Select(no => new Person()
 			{
-				Id = item,
-				Name = $"Person {item}",
+				Id = no,
+				Name = $"Person {no}",
 				Birthday = GenerateBirthDay().ToShortDateString(),
 				Address = GenerateAddress(),
 				DepartmentId = _random.Next(1, 4)
 			}).Where(p => p.Id % 2 == 0).ToList();
-
 			Employees = new ObservableCollection<Person>(employees);
 
-			var depts = Enumerable.Range(1, 3).Select(d => new Department(d)).ToList();
-			Departments = new ObservableCollection<Department>(depts);
+			var departments = Enumerable.Range(1, 3).Select(no => new Department(no)).ToList();
+			Departments = new ObservableCollection<Department>(departments);
 		}
 
 		private string GenerateAddress()
