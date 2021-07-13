@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using System.Windows.Input;
 
 namespace EmployeeDatabase
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ObservableObject
     {
         // Constructor
         public MainViewModel()
@@ -29,7 +30,7 @@ namespace EmployeeDatabase
         public Department SelectedDepartment
         {
             get => _selectedDepartment;
-            set => _selectedDepartment = value;
+            set => SetProperty(ref _selectedDepartment, value);
         }
 
         public Person SelectedEmployee
@@ -37,9 +38,9 @@ namespace EmployeeDatabase
             get => _selectedEmployee;
             set
             {
-                _selectedEmployee = value;
-                OnPropertyChanged();
-                SelectedDepartment = Departments.First(d => d.Id == _selectedEmployee.DepartmentId);
+                _ = SetProperty(ref _selectedEmployee, value);
+                var newDept = Departments.First(d => d.Id == value.DepartmentId);
+                _ = SetProperty(ref _selectedDepartment, newDept);
                 OnPropertyChanged(nameof(SelectedDepartment));
             }
         }
@@ -50,7 +51,7 @@ namespace EmployeeDatabase
             var employees = Enumerable.Range(1, 100).Select(no => new Person()
             {
                 Id = no,
-                Name = $"Person {no}",
+                Name = $"Person No. {no}",
                 Birthday = GenerateBirthDay().ToShortDateString(),
                 Address = GenerateAddress(),
                 DepartmentId = _random.Next(1, 4)
