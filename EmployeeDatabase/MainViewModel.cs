@@ -30,7 +30,11 @@ namespace EmployeeDatabase
         public Department SelectedDepartment
         {
             get => _selectedDepartment;
-            set => SetProperty(ref _selectedDepartment, value);
+            set
+            {
+                var newDept = Departments.First(d => d.Id == value.Id);
+                _ = SetProperty(ref _selectedDepartment, newDept);
+            }
         }
 
         public Person SelectedEmployee
@@ -39,8 +43,6 @@ namespace EmployeeDatabase
             set
             {
                 _ = SetProperty(ref _selectedEmployee, value);
-                var newDept = Departments.First(d => d.Id == value.DepartmentId);
-                _ = SetProperty(ref _selectedDepartment, newDept);
                 OnPropertyChanged(nameof(SelectedDepartment));
             }
         }
