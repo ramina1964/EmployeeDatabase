@@ -30,7 +30,7 @@ namespace EmployeeDatabase
         public Department SelectedDepartment
         {
             get => _selectedDepartment;
-            set => SetProperty(ref _selectedDepartment, value);
+            set => _selectedDepartment = value;
         }
 
         public Person SelectedEmployee
