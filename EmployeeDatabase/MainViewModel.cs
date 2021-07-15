@@ -30,11 +30,7 @@ namespace EmployeeDatabase
         public Department SelectedDepartment
         {
             get => _selectedDepartment;
-            set
-            {
-                var newDept = Departments.First(d => d.Id == value.Id);
-                _ = SetProperty(ref _selectedDepartment, newDept);
-            }
+            set => SetProperty(ref _selectedDepartment, value);
         }
 
         public Person SelectedEmployee
@@ -42,8 +38,14 @@ namespace EmployeeDatabase
             get => _selectedEmployee;
             set
             {
-                _ = SetProperty(ref _selectedEmployee, value);
-                OnPropertyChanged(nameof(SelectedDepartment));
+                var isChanged = SetProperty(ref _selectedEmployee, value);
+
+                // Also invoke property SelectedDepartment with the updated value.
+                if (isChanged)
+                {
+                    var newDept = Departments.FirstOrDefault(d => d.Id == value.DepartmentId);
+                    _ = SetProperty(ref _selectedDepartment, newDept, nameof(SelectedDepartment));
+                }
             }
         }
 
